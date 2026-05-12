@@ -26,7 +26,8 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.Fa3liat"
+      "package": "com.anonymous.Fa3liat",
+      "usesCleartextTraffic": true
     },
     "web": {
       "output": "static",

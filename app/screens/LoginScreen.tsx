@@ -52,18 +52,21 @@ export default function LoginScreen() {
       const expireDate = Date.now() + 24 * 60 * 60 * 1000;
 
       const response = await login(email, password);
+      console.log("res",response.data.data)
       await AsyncStorage.setItem("accessToken", response?.data?.data?.token);
       await AsyncStorage.setItem("expierdIn", expireDate.toString());
 
       router.push("/scanner");
       
-      const token = await AsyncStorage.getItem("accessToken");
+
       
     } catch (error: any) {
       const message =
         error?.response?.data?.data?.message || "Something went wrong";
+        
       console.log(error?.response.data.data.message);
-      if (typeof message === "string") Alert.alert("Error", message);
+
+      if (typeof message == "string") Alert.alert("Error", message);
     } finally {
       setLoading(false);
     }
